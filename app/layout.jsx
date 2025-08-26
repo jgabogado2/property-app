@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Property Pulse",
@@ -11,12 +11,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script src="http://localhost:8097"></script>
       </head>
       <body
        className="bg-white text-white">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
