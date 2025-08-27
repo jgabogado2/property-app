@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AuthProvider from "@/components/AuthProvider";
 
 export const metadata = {
   title: "Property Pulse",
@@ -9,15 +10,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <AuthProvider>
     <html lang="en">
       <head>
       </head>
-      <body
-       className="bg-white text-white">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="bg-white text-white">
+          <Navbar />
+          {children}
+          <Footer />
       </body>
     </html>
+    </AuthProvider>
   );
 }
