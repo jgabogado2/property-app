@@ -1,6 +1,8 @@
+import addProperty from "@/app/actions/addProperty";
+
 const PropertyAddForm = () => {
   return (
-    <form>
+    <form action={addProperty}>
       <h2 className='text-3xl text-center font-semibold mb-6 mt-6'>Add Property</h2>
 
       <div className='mb-4'>
@@ -338,7 +340,7 @@ const PropertyAddForm = () => {
         <input
           type='text'
           id='seller_name'
-          name='seller_info.name.'
+          name='seller_info.name'
           className='border rounded w-full py-2 px-3'
           placeholder='Name'
         />
@@ -394,6 +396,7 @@ const PropertyAddForm = () => {
         <button
           className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mb-6 rounded-full w-full focus:outline-none focus:shadow-outline'
           type='submit'
+          
         >
           Add Property
         </button>

@@ -16,7 +16,7 @@ const PropertySchema = new Schema({
     },
     description: {
         type: String,
-        require: true,
+        required: true,
         
     },
     location: {
@@ -39,9 +39,9 @@ const PropertySchema = new Schema({
     },
     amenities: [
         {
-            types: String
-        }
-    ],
+          type: String,
+        },
+      ],
     rates: {
         nightly: Number,
         weekly: Number,
@@ -59,7 +59,7 @@ const PropertySchema = new Schema({
     ],
     isFeatured: {
         type: Boolean,
-        deafault: false,
+        default: false,
     },
 
 }, {
