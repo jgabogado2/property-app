@@ -12,7 +12,14 @@ import {
 } from 'react-share'
 
 const ShareButtons = ({ property }) => {
-    const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/properties/${property._id}`;
+    const propertyId = property?._id;
+    const typeTag = property?.type ? property.type.replace(/\s/g, '') : 'Property';
+    const name = property?.name ?? 'Property Listing';
+    const baseUrl = process.env.NEXT_PUBLIC_DOMAIN || '';
+    const shareUrl = propertyId ? `${baseUrl}/properties/${propertyId}` : baseUrl;
+
+    if (!propertyId) return null;
+
     return (
         <>
             <h3 className="text-xl font-bold text-center pt-2">
@@ -20,23 +27,23 @@ const ShareButtons = ({ property }) => {
                 <div className='flex gap-3 justify-center pb-5'>
                     <FacebookShareButton
                         url={shareUrl}
-                        quote={property.name}
-                        hashtag={`#${property.type.replace(/\s/g, '')}ForRent`}
+                        quote={name}
+                        hashtag={`#${typeTag}ForRent`}
                     >
                         <FacebookIcon size={40} round={true} />
                     </FacebookShareButton>
 
                     <TwitterShareButton
                         url={shareUrl}
-                        title={property.name}
-                        hashtags={[`${property.type.replace(/\s/g, '')}ForRent`]}
+                        title={name}
+                        hashtags={[`${typeTag}ForRent`]}
                     >
                         <TwitterIcon size={40} round={true} />
                     </TwitterShareButton>
 
                     <WhatsappShareButton
                         url={shareUrl}
-                        title={property.name}
+                        title={name}
                         separator=':: '
                     > 
                         <WhatsappIcon size={40} round={true} />
@@ -44,7 +51,7 @@ const ShareButtons = ({ property }) => {
 
                     <EmailShareButton
                         url={shareUrl}
-                        subject={property.name}
+                        subject={name}
                         body={`Check out this property listing: ${shareUrl}`}
                     >
                         <EmailIcon size={40} round={true} />
