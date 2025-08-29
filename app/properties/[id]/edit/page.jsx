@@ -1,6 +1,7 @@
 import PropertyEditForm from "@/components/PropertyEditForm";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import Link from "next/link";
 import { convertToSerializableObject } from "@/utils/convertToObject";
 
 
