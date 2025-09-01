@@ -16,7 +16,7 @@ const Hero = () => {
                         Discover the perfect property that suits your needs.
                     </p>
                 </div>
-                {/* <!-- Form Component --> */}
+                <PropertySearchForm />
             </div>
         </section>
     );
